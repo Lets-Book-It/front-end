@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './index.css';
 
@@ -9,14 +9,14 @@ import BookList from './components/BookList';
 import BookReview from './components/BookReview';
 
 
-
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <Router>
     <Routes>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/booklist" component={BookList} />
-      <Route exact path="/bookreview/:bookId" component={BookReview} />
+      <Route exact path="/" element={Home} />
+      <Route exact path="/booklist" element={BookList} />
+      <Route exact path="/bookreview/:bookId" element={BookReview} />
     </Routes>
   </Router>,
-  document.getElementById('root')
+ 
 );
